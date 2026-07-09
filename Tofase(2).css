@@ -1,38 +1,163 @@
-/* تلوين العنوان الرئيسي باللون الأزرق */
-html{
+/* تلوين الخلفية العامة وتوسيط الحاوية في نصف الشاشة */
+html, body {
     background-color: rgb(53, 49, 49);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
+
+/* حاوية التطبيق الرئيسية وتوسيط محتواها */
+.app {
+    background-color: #222222;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 550px; /* جعلنا الصندوق أعرض قليلاً ليناسب الخط الكبير */
+    text-align: center; /* توسيط كل النصوص */
+}
+
+/* تنسيق العنوان الرئيسي - خط كبير جداً في المنتصف */
 h1 {
     color: #f9f9f9;
-    font-family: Arial, sans-serif;
-    text-align:center;
-    border: dotted;
-    margin: 20px auto;
+    font-size: 2.5rem; /* خط كبير ومميز */
+    text-align: center;
+    border: 4px dotted #01d2af;
+    margin: 0 auto 25px auto;
     width: fit-content;
+    padding: 10px 25px;
     background-color: rgb(0, 0, 0);
 }
 
-/* تنسيق نص الوصف */
-p {
-    font-family: Arial, sans-serif;
+/* تنسيق نص الوصف باللون الأحمر وخط كبير */
+p.description {
+    font-size: 1.3rem; /* تكبير الخط */
     color: #ff0000;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-/* تنسيق حقل إدخال التاريخ والحواف المنحنية */
-input {
-    padding: 6px;
-    border: 1px solid #01d2af;
-    border-radius: 4px; /* لعمل الانحناء البسيط */
-    display: block;
-    margin-bottom: 10px; /* مسافة تحت الحقل */
+/* حاوية حقل الإدخال والزر لترتيبهم في المنتصف */
+.input-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-/* تنسيق الزر باللون الأزرق والكتابة البيضاء */
-button {
+/* تنسيق حقل الإدخال الرئيسي - خط كبير وواضح */
+input#taskInput {
+    padding: 12px;
+    font-size: 1.2rem; /* تكبير خط الكتابة */
+    border: 2px solid #01d2af;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
+    width: 65%;
+    outline: none;
+}
+
+/* تنسيق الزر الرئيسي - خط كبير وتصميم متناسق */
+button#addTask {
     background-color: #691a91;
     color: white;
     border: none;
-    padding: 8px 14px;
-    border-radius: 4px; /* لعمل انحناء الزر */
+    padding: 12px 20px;
+    font-size: 1.1rem; /* تكبير خط الزر */
+    font-weight: bold;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button#addTask:hover {
+    background-color: #521372;
+}
+
+/* رسالة الخطأ أو النجاح في المنتصف وبخط كبير */
+#message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 25px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* نص عداد المهام */
+.counter-text {
+    font-size: 1.3rem;
+    color: #ff0000;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#taskCount {
+    color: #ffffff;
+    font-size: 1.5rem; /* جعل الرقم أكبر */
+}
+
+/* قائمة المهام المضافة */
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+/* تنسيق السطر الخاص بكل مهمة وتوسيط العناصر داخله عمودياً */
+#taskList li {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* محاذاة العناصر في المنتصف عمودياً */
+    border-left: 5px solid #01d2af;
+    gap: 15px;
+}
+
+/* نص المهمة المضافة داخل القائمة */
+.task-text {
+    color: #ffffff;
+    font-size: 1.2rem; /* خط كبير للمهمة */
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+    word-break: break-all;
+}
+
+/* حقل الملاحظات الصغير داخل المهمة */
+.task-note {
+    width: 35%;
+    padding: 8px;
+    font-size: 1rem; /* خط مناسب للملاحظة */
+    background-color: #2b2b2b;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 4px;
+    outline: none;
+}
+
+.task-note:focus {
+    border-color: #01d2af;
+}
+
+/* زر الحذف الخاص بكل مهمة */
+.delete-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 1rem; /* خط كبير لزر الحذف */
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #b30000;
 }
