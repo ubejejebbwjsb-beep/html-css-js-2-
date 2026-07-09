@@ -1,0 +1,38 @@
+/* تلوين العنوان الرئيسي باللون الأزرق */
+html{
+    background-color: rgb(53, 49, 49);
+}
+h1 {
+    color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    border: dotted;
+    margin: 20px auto;
+    width: fit-content;
+    background-color: rgb(0, 0, 0);
+}
+
+/* تنسيق نص الوصف */
+p {
+    font-family: Arial, sans-serif;
+    color: #ff0000;
+}
+
+/* تنسيق حقل إدخال التاريخ والحواف المنحنية */
+input {
+    padding: 6px;
+    border: 1px solid #01d2af;
+    border-radius: 4px; /* لعمل الانحناء البسيط */
+    display: block;
+    margin-bottom: 10px; /* مسافة تحت الحقل */
+}
+
+/* تنسيق الزر باللون الأزرق والكتابة البيضاء */
+button {
+    background-color: #691a91;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px; /* لعمل انحناء الزر */
+    cursor: pointer;
+}
